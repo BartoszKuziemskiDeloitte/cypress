@@ -1,0 +1,11 @@
+[
+    {
+        "email" : "bkuziemski@deloittece.com",
+        "password" : "12345"
+    },
+
+    {
+        "email" : "test@deloittece.com",
+        "password" : "54321"
+    }
+]
