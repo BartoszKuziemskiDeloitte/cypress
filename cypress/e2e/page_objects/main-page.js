@@ -42,8 +42,12 @@ export class MainPage {
         cy.get('.logout').contains("Sign out").click();
     }
 
-    static addToCart() {
-        cy.get('#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default').click();
+    static continueShopping() {
+        cy.get('#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > span > span').click();
+    }
+
+    static addToCart(id, name) {
+        //cy.get('#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default').click();
         // cy.get('#layer_cart_product_price').invoke('text').as('storedValue')
         // let price1 = this.storedValue;
         // cy.log(price1);
@@ -52,16 +56,19 @@ export class MainPage {
         //   cy.log(storedValue) //prints value
         // })
 
-        let storedValue
-        cy.get('#layer_cart_product_price')
-        .invoke('text')
-        .then((text) => {
-            storedValue = text
-        })
+
+        // go to woman tab
+        //cy.get('#block_top_menu > ul > li.sfHoverForce > a').click()
+        // this.clickCategory("Woman")
+        // go to dresses tab
+        // this.clickCategory("Dresses")
+        cy.get('#block_top_menu > ul > li:nth-child(2) > a').click();        
+        //cy.wait(4000)
+        cy.get(id).click()
+        //cy.wait(4000)
+        
 
 
     }
-
-    //http://automationpractice.com/index.php?controller=my-account
 
 }

@@ -24,20 +24,27 @@ context('e-shop go to', () => {
         //     MainPage.clickLogin();
         // })
 
-        // it('should login all users from json', () => {
-        //     var json = require('../resource/users.json'); //with path
-        //     for(let i = 0; i < json.length; i++) {
-        //         var email = json[i].email;
-        //         var password = json[i].password;
-        //         MainPage.checkManyAccounts(email, password);
-        //         MainPage.signOut();
-        //     }
-
-        // })
-
-        it('add to cart', () => {
-            MainPage.addToCart();
+        it('should login all users from json', () => {
+            var json = require('../resource/users.json');
+            for(let i = 0; i < json.length; i++) {
+                var email = json[i].email;
+                var password = json[i].password;
+                MainPage.checkManyAccounts(email, password);
+                MainPage.signOut();
+            }
         })
+
+
+
+        it('should add all products to cart', () => {
+            var json = require('../resource/products.json');
+            for(let i = 0; i < json.length; i++) {
+                var id = json[i].id;
+                var name = json[i].name;
+                MainPage.addToCart(id, name);
+                MainPage.continueShopping();
+            }
+        });
 
     })
 })
