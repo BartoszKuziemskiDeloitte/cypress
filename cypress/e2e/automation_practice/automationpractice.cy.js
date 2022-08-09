@@ -25,25 +25,19 @@ context('e-shop go to', () => {
         // })
 
         it('should login all users from json', () => {
-            var json = require('../resource/users.json');
-            for(let i = 0; i < json.length; i++) {
-                var email = json[i].email;
-                var password = json[i].password;
-                MainPage.checkManyAccounts(email, password);
+            var json = require('../../fixtures/users.json');
+            json.forEach(element => {
+                MainPage.checkManyAccounts(element.email, element.password);
                 MainPage.signOut();
-            }
+            });
         })
 
-
-
         it('should add all products to cart', () => {
-            var json = require('../resource/products.json');
-            for(let i = 0; i < json.length; i++) {
-                var id = json[i].id;
-                var name = json[i].name;
-                MainPage.addToCart(id, name);
+            var json = require('../../fixtures/products.json');
+            json.forEach(element => {
+                MainPage.addToCart(element.id, element.name);
                 MainPage.continueShopping();
-            }
+            })
         });
 
     })
