@@ -10,35 +10,25 @@ context('e-shop go to', () => {
 
     describe('menu bar', () => {
 
-        // it('should open category: Women', () => {
-        //     MainPage.clickCategory('Women');
-        //     //    WomenPage.checkIfWomenCategoryisOpen();      
-        // })
-
-        // it('should open cart page', () => {
-        //     MainPage.clickShoppingCart();
-        //     //     ShoppingCart.checkIfShoppingCartisOpen();        
-        // })
-
-        // it('should open login page', () => {
-        //     MainPage.clickLogin();
-        // })
-
         it('should login all users from json', () => {
             var json = require('../../fixtures/users.json');
             json.forEach(element => {
-                MainPage.checkManyAccounts(element.email, element.password);
+                MainPage.clickSignIn();
+                MainPage.setEmail(element.email);
+                MainPage.setPassword(element.password);
+                MainPage.clickSubmitLogin();
+                MainPage.checkIfLogged(element.name);
                 MainPage.signOut();
             });
         })
 
-        it('should add all products to cart', () => {
-            var json = require('../../fixtures/products.json');
-            json.forEach(element => {
-                MainPage.addToCart(element.id, element.name);
-                MainPage.continueShopping();
-            })
-        });
+        // it('should add all products to cart', () => {
+        //     var json = require('../../fixtures/products.json');
+        //     json.forEach(element => {
+        //         MainPage.addToCart(element.id, element.name);
+        //         MainPage.continueShopping();
+        //     })
+        // });
 
     })
 })

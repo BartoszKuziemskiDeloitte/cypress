@@ -1,41 +1,28 @@
 export class MainPage {
 
     static openAutomationPracticePage() {
-
         cy.visit("http://automationpractice.com/index.php");
-
     }
 
-
-
-    static clickCategory(name) {
-
-        cy.get('#block_top_menu').contains(name).click();
-
-    }
-
-
-
-    static clickShoppingCart() {
-
-        cy.get('.shopping_cart').contains("Cart").click();
-
-    }
-
-    static clickLogin() {
+    static clickSignIn() {
         cy.get('.login').contains("Sign in").click();
-        cy.get('#email').type("bkuziemski@deloittece.com")
-        cy.get('#passwd').type("12345")
-        cy.get('#SubmitLogin').click()
-        cy.url().should('eq', 'http://automationpractice.com/index.php?controller=my-account')
     }
 
-    static checkManyAccounts(email, password) {        
-        cy.get('.login').contains("Sign in").click();
-        cy.get('#email').type(email)
-        cy.get('#passwd').type(password)
-        cy.get('#SubmitLogin').click()
-        cy.url().should('eq', 'http://automationpractice.com/index.php?controller=my-account')
+    static setEmail(email) {
+        cy.get('#email').type(email);
+    }
+
+    static setPassword(password) {
+        cy.get('#passwd').type(password);
+    }
+
+    static clickSubmitLogin() {
+        cy.get('#SubmitLogin').click();
+    }
+
+    static checkIfLogged(name) {   
+        //cy.url().should('eq', 'http://automationpractice.com/index.php?controller=my-account');
+        cy.get('.account > span').should("have.text", name);
     }
 
     static signOut() {
@@ -50,6 +37,11 @@ export class MainPage {
     static addToCart(id, name) {
         cy.get('#block_top_menu > ul > li:nth-child(2) > a').click();        
         cy.get(id).click();
+    }
+
+    static clickProccedShopping() {
+        cy.wait(6000);
+        cy.get('.button-medium').contains("Proceed").click();
     }
 
 }

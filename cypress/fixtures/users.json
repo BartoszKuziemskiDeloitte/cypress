@@ -1,11 +1,13 @@
 [
     {
         "email" : "bkuziemski@deloittece.com",
-        "password" : "12345"
+        "password" : "12345",
+        "name" : "b kuziemski"
     },
 
     {
         "email" : "test@deloittece.com",
-        "password" : "54321"
+        "password" : "54321",
+        "name" : "aa bb"
     }
 ]
