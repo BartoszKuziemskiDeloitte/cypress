@@ -10,25 +10,26 @@ context('e-shop go to', () => {
 
     describe('menu bar', () => {
 
-        it('should login all users from json', () => {
-            var json = require('../../fixtures/users.json');
-            json.forEach(element => {
-                MainPage.clickSignIn();
-                MainPage.setEmail(element.email);
-                MainPage.setPassword(element.password);
-                MainPage.clickSubmitLogin();
-                MainPage.checkIfLogged(element.name);
-                MainPage.signOut();
-            });
-        })
-
-        // it('should add all products to cart', () => {
-        //     var json = require('../../fixtures/products.json');
+        // it('should login all users from json', () => {
+        //     var json = require('../../fixtures/users.json');
         //     json.forEach(element => {
-        //         MainPage.addToCart(element.id, element.name);
-        //         MainPage.continueShopping();
-        //     })
-        // });
+        //         MainPage.clickSignIn();
+        //         MainPage.setEmail(element.email);
+        //         MainPage.setPassword(element.password);
+        //         MainPage.clickSubmitLogin();
+        //         MainPage.checkIfLogged(element.name);
+        //         MainPage.signOut();
+        //     });
+        // })
+
+        it('should add all products to cart', () => {
+            var json = require('../../fixtures/products.json');
+            json.forEach(element => {
+                MainPage.openDressesCategory();
+                MainPage.addToCart(element.id, element.name);
+                MainPage.continueShopping();
+            })
+        });
 
     })
 })

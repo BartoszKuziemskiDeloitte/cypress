@@ -21,7 +21,6 @@ export class MainPage {
     }
 
     static checkIfLogged(name) {   
-        //cy.url().should('eq', 'http://automationpractice.com/index.php?controller=my-account');
         cy.get('.account > span').should("have.text", name);
     }
 
@@ -30,18 +29,22 @@ export class MainPage {
     }
 
     static continueShopping() {
-        cy.wait(9500);
-        cy.get('#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > span > span').click();
+        // cy.wait(9500);
+        cy.get('#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > span > span').click({force:true});
     }
 
-    static addToCart(id, name) {
-        cy.get('#block_top_menu > ul > li:nth-child(2) > a').click();        
+    static addToCart(id) {
+        //cy.get('#block_top_menu > ul > li:nth-child(2) > a').click();        
         cy.get(id).click();
     }
 
     static clickProccedShopping() {
         cy.wait(6000);
         cy.get('.button-medium').contains("Proceed").click();
+    }
+
+    static openDressesCategory() {
+        cy.get('#block_top_menu').contains("Dresses").click({force: true});
     }
 
 }
