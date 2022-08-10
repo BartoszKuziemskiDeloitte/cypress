@@ -1,8 +1,10 @@
 [{
     "id": "#center_column > ul > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default > span",
-    "name": "Printed Dress"
+    "name": "Printed Dress",
+    "price": 26.00
 },
 {
     "id":"#center_column > ul > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.last-line.last-item-of-tablet-line.first-item-of-mobile-line.last-mobile-line > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default > span",
-    "name": "Printed Summer Dress"
+    "name": "Printed Summer Dress",
+    "price": 30.50
 }]

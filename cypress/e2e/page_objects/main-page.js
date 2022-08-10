@@ -28,23 +28,21 @@ export class MainPage {
         cy.get('.logout').contains("Sign out").click();
     }
 
-    static continueShopping() {
-        // cy.wait(9500);
-        cy.get('#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > span > span').click({force:true});
+    static goToCart() {
+        cy.wait(5000);
+        cy.get('.button-medium').contains("Proceed").click();
     }
 
     static addToCart(id) {
-        //cy.get('#block_top_menu > ul > li:nth-child(2) > a').click();        
         cy.get(id).click();
-    }
-
-    static clickProccedShopping() {
-        cy.wait(6000);
-        cy.get('.button-medium').contains("Proceed").click();
     }
 
     static openDressesCategory() {
         cy.get('#block_top_menu').contains("Dresses").click({force: true});
+    }
+
+    static checkIfTotalPriceIsEqual(price) {
+        let total = cy.get('#total_product').invoke('text').should('eq', price);
     }
 
 }

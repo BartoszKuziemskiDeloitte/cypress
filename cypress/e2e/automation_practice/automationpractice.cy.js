@@ -24,10 +24,14 @@ context('e-shop go to', () => {
 
         it('should add all products to cart', () => {
             var json = require('../../fixtures/products.json');
+            let price = 0.0;
             json.forEach(element => {
                 MainPage.openDressesCategory();
                 MainPage.addToCart(element.id, element.name);
-                MainPage.continueShopping();
+                MainPage.goToCart();
+                price += element.price;
+                let priceStr = "$" + price.toFixed(2);
+                MainPage.checkIfTotalPriceIsEqual(priceStr);
             })
         });
 
